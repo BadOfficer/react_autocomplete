@@ -10,7 +10,7 @@ export const App: React.FC = () => {
 
   const filteredUsers = useMemo(() => {
     return peopleFromServer.filter(item =>
-      item.name.toLowerCase().includes(query.trim().toLowerCase()),
+      item.name.toLowerCase().includes(query.toLowerCase()),
     );
   }, [query]);
 

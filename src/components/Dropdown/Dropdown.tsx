@@ -28,7 +28,7 @@ export const Dropdown: React.FC<Props> = memo(function Dropdown({
   const debounceChangeQuery = useMemo(
     () =>
       debounce((value: string) => {
-        onChange(value);
+        onChange(value.trim());
       }, delay),
     [onChange, delay],
   );
