@@ -10,7 +10,7 @@ export const App: React.FC = () => {
 
   const filteredUsers = useMemo(() => {
     return peopleFromServer.filter(item =>
-      item.name.toLowerCase().includes(query.toLowerCase()),
+      item.name.toLowerCase().includes(query.trim().toLowerCase()),
     );
   }, [query]);
 
@@ -29,7 +29,7 @@ export const App: React.FC = () => {
           onChange={setQuery}
         />
 
-        {filteredUsers.length === 0 && (
+        {filteredUsers.length === 0 && query !== '' && (
           <div
             className="
             notification

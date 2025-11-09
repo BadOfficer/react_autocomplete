@@ -13,7 +13,7 @@ interface Props {
 export const Dropdown: React.FC<Props> = memo(function Dropdown({
   users,
   onSelected: onSelect = () => {},
-  onChange = () => {},
+  onChange,
   delay = 300,
 }) {
   const [showList, setShowList] = useState(false);
@@ -34,7 +34,7 @@ export const Dropdown: React.FC<Props> = memo(function Dropdown({
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const curValue = event.target.value.trim();
+    const curValue = event.target.value;
 
     debounceChangeQuery(curValue);
     setSearch(curValue);
